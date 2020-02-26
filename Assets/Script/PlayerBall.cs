@@ -46,14 +46,16 @@ public class PlayerBall : MonoBehaviour
             itemCount++;
             audio.Play();
             other.gameObject.SetActive(false);
-
+            manager.GetItem(itemCount);
         } else if(other.tag == "Finish") {
             if(itemCount == manager.totalItemCount) {
                 //Game Clear
-                SceneManager.LoadScene("Example"+ (manager.stage + 1));
+                SceneManager.LoadScene("Example1_" + (manager.stage + 1).ToString());
+                Debug.Log("다먹음");
             } else {
                 //Restart
-                SceneManager.LoadScene("Example" + manager.stage);
+                SceneManager.LoadScene("Example1_" + manager.stage.ToString());
+                Debug.Log("남았엉");
             }
         }
     }
